@@ -26,10 +26,10 @@ class WPSFTest {
 
 		// Include and create a new WordPressSettingsFramework
 		require_once( $this->plugin_path . 'wp-settings-framework.php' );
-		$this->wpsf = new WordPressSettingsFramework( $this->plugin_path . 'settings/settings-general.php', 'prefix_settings_general' );
+		$this->wpsf = new WordPressSettingsFramework( $this->plugin_path . 'settings/example-settings.php', 'prefix_settings_general' );
 
 		// Add admin menu
-		add_action( 'admin_menu', array( $this, 'add_settings_page' ), 20 );
+		add_action( 'admin_menu', array( $this, 'settings_page' ), 20 );
 		
 		// Add an optional settings validation filter (recommended)
 		add_filter( $this->wpsf->get_option_group() . '_settings_validate', array( &$this, 'validate_settings' ) );
